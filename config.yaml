@@ -1,0 +1,4 @@
+attributes:
+  - name: userId
+    description: "Blabla"
+    type: UUID

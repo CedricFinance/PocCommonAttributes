@@ -1,0 +1,19 @@
+package com.blablacar.payment.servix.application.trigger.controller;
+
+import net.logstash.logback.argument.StructuredArgument;
+import net.logstash.logback.argument.StructuredArguments;
+
+import java.util.UUID;
+
+public final class CommonDatadogAttributes {
+    private CommonDatadogAttributes() {}
+
+{{ range $attribute := . }}
+    /*
+     * {{ $attribute.Description }}
+     */
+    public static StructuredArgument {{ $attribute.Name }}(final UUID value) {
+        return StructuredArguments.value( "{{ $attribute.Name }}", value );
+    }
+{{ end }}
+}
